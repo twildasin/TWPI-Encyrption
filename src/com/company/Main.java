@@ -5,11 +5,10 @@ public class Main {
 
     public static void main(String[] args) {
         String input = "";
-        String output = "";
         String ende = "";
         Scanner kkbin = new Scanner(System.in);
         boolean con1 = false;
-        boolean encd = true;
+
 
         System.out.println("Welcome, would you like to encode or decode a word?");
 
@@ -20,16 +19,30 @@ public class Main {
             ende = kkbin.nextLine();
 
             if(Objects.equals(ende.toLowerCase(), "encode")) {
-                encd = true;
+
                 con1 = true;
+
+                System.out.println("Please input the word you would like to encode:");
+                input = kkbin.nextLine();
+                Encrypt en = new Encrypt(input);
+                System.out.println("\nInput: " + input + "\nEncoded: " + en.encode());
+
+
             }
             else if(Objects.equals(ende.toLowerCase(), "decode")) {
-                encd = false;
+
                 con1 = true;
+
+                System.out.println("Please input the word you would like to decode:");
+                input = kkbin.nextLine();
+                Encrypt en = new Encrypt(input);
+                System.out.println("\nInput: " + input + "\nDecoded: " + en.decode());
+
             }
             else
                 System.out.println("Invalid input, please input \"encode\" or \"decode\"");
         }
+
 
 
 
